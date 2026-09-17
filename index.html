@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nile &amp; Nook | ديكور وهدايا يدوية</title>
+<meta name="description" content="قطع ديكور وهدايا مصنوعة يدويًا بروح مصرية وشكل عصري — شموع، مكرمية، فازات، لوحات وGift Boxes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=El+Messiri:wght@500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#8A5A3A;
+    --night-soft:#9C6C48;
+    --cream:#F6EEDF;
+    --cream-deep:#EDDFC4;
+    --card:#FBF6EC;
+    --paper:#FAF4E7;
+    --ink:#3B2A1D;
+    --ink-soft:#7A6350;
+    --gold:#D4A96C;
+    --gold-deep:#B98A4A;
+    --terracotta:#C96B3F;
+    --terracotta-deep:#A0552E;
+    --olive:#7A8550;
+    --olive-deep:#5C6839;
+    --shadow: 0 18px 40px rgba(59,42,29,0.14);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Cairo', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.75;
+    overflow-x:hidden;
+    position:relative;
+  }
+  img{max-width:80%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  input{font-family:inherit;}
+
+  /* Grain / linen texture overlay — tactile, handmade feel across whole page */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:200;
+    pointer-events:none;
+    opacity:0.05;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1,h2,h3{ color:inherit; font-weight:700; }
+  .arabic-display{
+    font-family:'Aref Ruqaa', 'Cairo', serif;
+    font-weight:700;
+  }
+  .brand-wordmark{
+    font-family:'El Messiri', 'Cairo', sans-serif;
+    font-weight:700;
+  }
+
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    font-weight:700;
+    color:var(--gold-deep);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--gold-deep);
+  }
+  .eyebrow.on-dark{ color:var(--gold); }
+  .eyebrow.on-dark::before{ background:var(--gold); }
+
+  .section{ padding:110px 0; position:relative; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head.center{ margin-inline:auto; text-align:center; }
+  .section-head h2{ font-size:clamp(2rem, 4vw, 2.9rem); line-height:1.35; }
+  .section-head p{ color:var(--ink-soft); font-size:1.05rem; margin-top:12px; }
+
+  /* ============ reveal on scroll ============ */
+  .reveal{ opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ============ thread signature: draws itself in on scroll ============ */
+  .thread{ display:block; width:100%; height:56px; overflow:visible; }
+  .thread path{
+    fill:none; stroke:var(--gold); stroke-width:2; stroke-linecap:round;
+    stroke-dasharray:1400; stroke-dashoffset:1400;
+    transition:stroke-dashoffset 1.6s ease;
+  }
+  .thread.is-drawn path{ stroke-dashoffset:0; }
+  .thread circle{ fill:var(--gold); opacity:0; transition:opacity .5s ease .9s; }
+  .thread.is-drawn circle{ opacity:0.85; }
+
+  /* ============ torn paper edge between sections ============ */
+  .torn{
+    height:34px; width:100%;
+    background:var(--cream);
+    clip-path:polygon(0% 100%,3% 30%,7% 90%,11% 20%,15% 80%,19% 15%,23% 95%,27% 25%,31% 85%,35% 10%,39% 90%,43% 30%,47% 80%,51% 20%,55% 95%,59% 15%,63% 85%,67% 25%,71% 90%,75% 10%,79% 80%,83% 20%,87% 95%,91% 15%,95% 85%,100% 100%,100% 100%,0% 100%);
+  }
+  .torn.into-night{ background:var(--night); }
+  .torn.into-cream{ background:var(--cream); }
+  .torn.into-olive{ background:var(--olive-deep); }
+
+  /* ============ buttons ============ */
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:16px 32px; border-radius:999px; font-weight:700; font-size:1rem;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-primary{ background:var(--terracotta); color:#fff; box-shadow:0 12px 26px rgba(187,91,52,0.4); }
+  .btn-primary:hover{ background:var(--terracotta-deep); transform:translateY(-2px) rotate(-0.5deg); }
+  .btn-ghost{ background:transparent; color:var(--cream); border:1.5px solid rgba(241,230,211,0.5); }
+  .btn-ghost:hover{ background:rgba(241,230,211,0.12); }
+  .btn-outline-ink{ background:transparent; color:var(--ink); border:1.5px solid var(--ink); }
+  .btn-outline-ink:hover{ background:var(--ink); color:var(--cream); }
+  .btn-sm{ padding:11px 22px; font-size:0.9rem; }
+  .btn svg{ width:19px; height:19px; flex-shrink:0; }
+
+  /* ============ header ============ */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:80;
+    padding:22px 0;
+    transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  header.scrolled{
+    background:rgba(247,238,233,0.92);
+    backdrop-filter:blur(10px);
+    padding:14px 0;
+    box-shadow:0 8px 24px rgba(58,42,48,0.12);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; }
+  .logo-box{ display:flex; align-items:center; gap:10px; }
+  .logo-mark{
+    width:44px; height:44px; border-radius:50%;
+    background:var(--gold); color:var(--night);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Aref Ruqaa', serif; font-size:1.3rem; flex-shrink:0;
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  }
+  .logo-text{ font-size:1.4rem; color:var(--ink); }
+  .logo-sub{ display:block; font-size:0.66rem; font-weight:500; color:var(--ink-soft); letter-spacing:0.04em; }
+  .nav-links{ display:flex; gap:36px; font-weight:700; font-size:0.95rem; color:var(--ink); }
+  .nav-links a{ position:relative; padding:4px 0; }
+  .nav-links a::after{
+    content:""; position:absolute; right:0; bottom:-3px; width:0%; height:2px;
+    background:var(--terracotta); transition:width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  @media (max-width:900px){ .nav-links{ display:none; } }
+
+  /* ============ hero ============ */
+  .hero{
+    background:var(--cream);
+    color:var(--ink);
+    padding:170px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    /* faint decorative knot linework in the corner */
+    content:"";
+    position:absolute; left:-120px; bottom:-120px;
+    width:420px; height:420px;
+    background-image:radial-gradient(circle, transparent 60%, transparent 60%);
+    border:1px solid rgba(212,169,108,0.25);
+    border-radius:50%;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero-copy .eyebrow{ color:var(--terracotta-deep); }
+  .hero-copy .eyebrow::before{ background:var(--terracotta-deep); }
+  .hero h1{
+    font-size:clamp(2.6rem, 5.6vw, 4.4rem);
+    line-height:1.32;
+    margin-bottom:26px;
+  }
+  .hero h1 .outline-word{
+    /* لون مصمت افتراضي يظهر في كل المتصفحات */
+    color:var(--terracotta-deep);
+  }
+  /* الشكل المفرغ (Outline) بيتفعّل بس في المتصفحات اللي بتدعمه فعليًا */
+  @supports (-webkit-text-stroke:1.5px var(--terracotta-deep)){
+    .hero h1 .outline-word{
+      color:transparent;
+      -webkit-text-stroke:1.5px var(--terracotta-deep);
+    }
+  }
+  .hero p.lede{
+    font-size:1.16rem;
+    color:var(--ink-soft);
+    max-width:460px;
+    margin-bottom:38px;
+  }
+  .hero-actions{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:40px; }
+  .hero-note{ display:flex; align-items:center; gap:10px; font-size:0.88rem; color:var(--ink-soft); font-weight:600; }
+  .hero-note .dot{ width:7px; height:7px; border-radius:50%; background:var(--terracotta); }
+
+  .hero-frame{
+    position:relative;
+    transform:rotate(2.5deg);
+  }
+  .hero-frame .image-placeholder{
+    aspect-ratio:4/5;
+    background:
+      repeating-linear-gradient(135deg, rgba(212,169,108,0.1) 0 16px, transparent 16px 32px),
+      var(--card);
+    border:1px solid rgba(58,42,48,0.12);
+    box-shadow:0 24px 50px rgba(58,42,48,0.14);
+  }
+  .hero-frame::before{
+    /* washi tape corner */
+    content:""; position:absolute; top:-14px; right:26px;
+    width:70px; height:26px; background:rgba(212,169,108,0.6);
+    transform:rotate(-8deg); box-shadow:0 4px 10px rgba(58,42,48,0.15);
+  }
+  .image-placeholder{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:12px; text-align:center; color:var(--ink-soft);
+    border-radius:10px;
+    padding:24px;
+  }
+  .image-placeholder svg{ width:42px; height:42px; opacity:0.6; }
+  .image-placeholder span{ font-size:0.83rem; font-weight:600; max-width:220px; }
+
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; text-align:center; }
+    .hero p.lede{ margin-inline:auto; }
+    .hero-actions{ justify-content:center; }
+    .hero-frame{ max-width:340px; margin:0 auto; transform:rotate(1.5deg); }
+  }
+
+  /* ============ marquee ticker ============ */
+  .ticker-wrap{
+    background:var(--gold);
+    padding:26px 0;
+    transform:rotate(-1.2deg);
+    margin:-18px 0;
+    overflow:hidden;
+    border-top:1px solid rgba(58,42,48,0.08);
+    border-bottom:1px solid rgba(58,42,48,0.08);
+  }
+  .ticker{
+    display:flex; white-space:nowrap;
+    animation:scrollTicker 26s linear infinite;
+    width:max-content;
+  }
+  .ticker span{
+    font-family:'Aref Ruqaa', serif;
+    font-size:1.7rem;
+    color:var(--card);
+    padding:0 28px;
+    display:flex; align-items:center; gap:28px;
+  }
+  .ticker span::after{ content:"✦"; color:var(--night); font-size:1rem; }
+  @keyframes scrollTicker{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker{ animation:none; }
+  }
+
+  /* ============ story ============ */
+  .story{
+    background:var(--cream-deep);
+    color:var(--ink);
+    padding:130px 0 110px;
+  }
+  .story .container{
+    display:grid;
+    grid-template-columns:0.42fr 0.58fr;
+    gap:60px;
+    align-items:center;
+  }
+  .story-quote{
+    font-family:'Aref Ruqaa', serif;
+    font-size:clamp(1.6rem, 2.6vw, 2.15rem);
+    line-height:1.6;
+    color:var(--ink);
+    position:relative;
+  }
+  .story-quote::before{
+    content:"”";
+    font-family:'Aref Ruqaa', serif;
+    font-size:5.5rem;
+    color:rgba(212,169,108,0.55);
+    position:absolute;
+    top:-46px; right:-8px;
+    line-height:1;
+  }
+  .story-quote p{ margin-bottom:16px; }
+  .story-quote footer-note{ display:block; }
+  .story-sign{
+    margin-top:26px;
+    font-family:'Cairo', sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    color:var(--terracotta-deep);
+  }
+  .story-visual{
+    position:relative;
+    transform:rotate(-2deg);
+  }
+  .story-visual .image-placeholder{
+    aspect-ratio:1/1;
+    background:var(--card);
+    border:1px dashed rgba(212,169,108,0.6);
+    color:var(--ink-soft);
+  }
+  @media (max-width:900px){
+    .story .container{ grid-template-columns:1fr; }
+    .story-visual{ order:-1; max-width:320px; margin:0 auto; }
+  }
+
+  /* ============ products — editorial rows ============ */
+  .product-row{
+    display:flex;
+    align-items:center;
+    gap:64px;
+    padding:56px 0;
+    border-bottom:1px solid rgba(58,42,48,0.1);
+  }
+  .product-row:last-child{ border-bottom:none; }
+  .product-row:nth-child(even){ flex-direction:row-reverse; }
+  .product-visual{ flex:0 0 38%; position:relative; }
+  .product-row:nth-child(odd) .product-visual{ transform:rotate(-1.5deg); }
+  .product-row:nth-child(even) .product-visual{ transform:rotate(1.5deg); }
+  .product-visual .image-placeholder{
+    aspect-ratio:5/4;
+    background:
+      repeating-linear-gradient(135deg, rgba(187,91,52,0.06) 0 14px, transparent 14px 28px),
+      var(--card);
+    border:1px solid rgba(58,42,48,0.1);
+    box-shadow:var(--shadow);
+    color:var(--ink-soft);
+  }
+  .product-info{ flex:1; }
+  .product-info .eyebrow{ margin-bottom:10px; }
+  .product-info h3{
+    font-family:'Aref Ruqaa', serif;
+    font-size:clamp(1.7rem, 2.6vw, 2.3rem);
+    margin-bottom:14px;
+  }
+  .product-info p{ color:var(--ink-soft); font-size:1.02rem; max-width:420px; margin-bottom:24px; }
+  .product-footer{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+  .price-tag{
+    position:relative;
+    background:var(--terracotta-deep);
+    color:var(--cream);
+    font-weight:700;
+    font-size:0.92rem;
+    padding:10px 18px 10px 22px;
+    border-radius:4px;
+    transform:rotate(-3deg);
+    transition:transform .3s ease;
+  }
+  .price-tag::before{
+    content:""; position:absolute; top:50%; right:-7px;
+    width:12px; height:12px; background:var(--terracotta-deep); border-radius:50%;
+    transform:translateY(-50%);
+  }
+  .price-tag::after{
+    content:""; position:absolute; top:-16px; right:-2px;
+    width:1px; height:16px; background:var(--gold);
+  }
+  .product-row:hover .price-tag{ transform:rotate(0deg) translateY(-3px); }
+  .price-tag span{ display:block; font-size:0.7rem; font-weight:500; opacity:0.7; margin-top:2px; }
+
+  @media (max-width:820px){
+    .product-row, .product-row:nth-child(even){ flex-direction:column; text-align:center; }
+    .product-row .product-visual{ max-width:300px; margin:0 auto 12px; }
+    .product-info p{ margin-inline:auto; }
+    .product-footer{ justify-content:center; }
+  }
+
+  /* ============ why us — staggered seals ============ */
+  .why-grid{
+    display:flex;
+    justify-content:center;
+    gap:54px;
+    flex-wrap:wrap;
+  }
+  .seal{
+    width:190px;
+    text-align:center;
+  }
+  .seal:nth-child(2){ transform:translateY(-26px); }
+  .seal:nth-child(3){ transform:translateY(14px); }
+  .seal-mark{
+    width:104px; height:104px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    border:1.5px dashed var(--gold-deep);
+    display:flex; align-items:center; justify-content:center;
+    background:var(--card);
+    box-shadow:var(--shadow);
+  }
+  .seal-mark svg{ width:42px; height:42px; stroke:var(--terracotta-deep); fill:none; stroke-width:1.5; }
+  .seal h3{ font-family:'Aref Ruqaa', serif; font-size:1.25rem; margin-bottom:8px; }
+  .seal p{ font-size:0.92rem; color:var(--ink-soft); }
+  @media (max-width:820px){
+    .seal:nth-child(2), .seal:nth-child(3){ transform:none; }
+  }
+
+  /* ============ gift banner ============ */
+  .gift-wrap{ padding:20px 0 40px; }
+  .gift-banner{
+    background:var(--terracotta);
+    color:#fff;
+    padding:70px 50px;
+    position:relative;
+    overflow:hidden;
+    clip-path:polygon(0% 4%,4% 0%,96% 1%,100% 5%,99% 96%,95% 100%,3% 99%,0% 94%);
+    display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+  }
+ 
+  .gift-banner h2{ font-family:'Aref Ruqaa', serif; font-size:clamp(1.8rem,3.4vw,2.4rem); margin-bottom:12px; }
+  .gift-banner p{ color:rgba(255,255,255,0.9); max-width:420px; }
+  @media (min-width:960px){ .gift-banner .stamp{ display:flex; } }
+
+  /* ============ contact ============ */
+  .contact-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .contact-side h2{ font-family:'Aref Ruqaa', serif; font-size:clamp(2rem,3.4vw,2.7rem); margin-bottom:16px; }
+  .contact-side p{ color:var(--ink-soft); margin-bottom:26px; font-size:1.03rem; max-width:420px; }
+  .contact-direct{
+    display:flex; align-items:center; gap:16px;
+    background:var(--card); border-radius:16px; padding:20px 22px;
+    box-shadow:var(--shadow);
+  }
+  .contact-direct .wa-icon{
+    width:48px; height:48px; border-radius:50%; background:var(--olive);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .contact-direct .wa-icon svg{ width:24px; height:24px; fill:var(--cream); }
+  .contact-direct strong{ display:block; font-size:1rem; }
+  .contact-direct span{ color:var(--ink-soft); font-size:0.88rem; }
+
+  .contact-card{
+    background:var(--paper);
+    border-radius:6px;
+    padding:44px;
+    position:relative;
+    box-shadow:var(--shadow);
+  }
+  .contact-card::before{
+    /* stitched border, like a fabric edge */
+    content:"";
+    position:absolute; inset:14px;
+    border:1.5px dashed rgba(58,42,48,0.22);
+    border-radius:4px;
+    pointer-events:none;
+  }
+  .field{ margin-bottom:20px; }
+  .field label{ display:block; font-size:0.86rem; font-weight:700; margin-bottom:8px; color:var(--ink-soft); }
+  .field input{
+    width:100%; padding:14px 16px; border-radius:6px;
+    border:1.5px solid rgba(58,42,48,0.2); background:var(--cream);
+    font-size:0.98rem; color:var(--ink);
+  }
+  .field input:focus{ outline:2px solid var(--terracotta); outline-offset:1px; border-color:var(--terracotta); }
+  .contact-card .btn{ width:100%; justify-content:center; margin-top:8px; }
+  .contact-hint{ font-size:0.8rem; color:var(--ink-soft); margin-top:12px; text-align:center; }
+
+  @media (max-width:900px){
+    .contact-wrap{ grid-template-columns:1fr; }
+    .contact-side{ order:2; text-align:center; }
+    .contact-side p{ margin-inline:auto; }
+    .contact-direct{ justify-content:center; }
+  }
+
+  /* ============ floating whatsapp ============ */
+  .float-wa{
+    position:fixed; bottom:24px; left:24px; z-index:70;
+    width:58px; height:58px; border-radius:50%;
+    background:var(--olive); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 28px rgba(0,0,0,0.3);
+    border:2px solid var(--gold);
+    transition:transform .25s ease;
+  }
+  .float-wa:hover{ transform:scale(1.08) rotate(-4deg); }
+  .float-wa svg{ width:27px; height:27px; fill:var(--cream); }
+
+  /* ============ footer ============ */
+  footer{ background:var(--cream-deep); color:var(--ink-soft); padding:60px 0 26px; }
+  .footer-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:36px;
+    padding-bottom:36px; border-bottom:1px solid rgba(58,42,48,0.12);
+  }
+  footer .logo-text{ color:var(--ink); }
+  footer .logo-sub{ color:var(--ink-soft); }
+  .footer-links{ display:flex; gap:14px; }
+  .footer-links a{
+    width:42px; height:42px; border-radius:50%;
+    background:rgba(58,42,48,0.08); display:flex; align-items:center; justify-content:center;
+    transition:background .25s ease;
+  }
+  .footer-links a:hover{ background:var(--terracotta); }
+  .footer-links svg{ width:18px; height:18px; fill:var(--ink); }
+  .footer-links a:hover svg{ fill:#fff; }
+  .footer-bottom{
+    padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.85rem; color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="container nav">
+    <div class="logo-box">
+      <!-- شعار مؤقت: استبدلي الدائرة دي بلوجو البراند لما يجهز -->
+      <div class="logo-mark">ن</div>
+      <div>
+        <span class="logo-text brand-wordmark">Nile &amp; Nook</span>
+        <span class="logo-sub">ديكور وهدايا يدوية</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#story">حكايتنا</a>
+      <a href="#products">المنتجات</a>
+      <a href="#why">ليه احنا</a>
+      <a href="#contact">تواصلي</a>
+    </nav>
+    <a class="btn btn-primary btn-sm wa-link" href="#" target="_blank" rel="noopener">اطلبي الآن</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow on-dark">Handmade in Egypt</span>
+      <h1 class="arabic-display">حاجات صغيرة<br>بتحوّل <span class="outline-word">بيتك</span><br>لمكانك</h1>
+      <p class="lede">قطع ديكور وهدايا مصنوعة بإيدين مصرية، بروح التراث وشكل بيعيش معاكِ دلوقتي. كل قطعة عندنا ليها حكاية، مش مجرد منتج.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary wa-link" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.5 1 1-3.4-.2-.3C3.5 14.6 3 13.3 3 12c0-4.9 4-8.9 9-8.9s9 4 9 8.9-4 8.9-9 8.9z"/></svg>
+          اطلبي على واتساب
+        </a>
+        <a class="btn btn-outline-ink" href="#products">شوفي المنتجات</a>
+      </div>
+      <div class="hero-note"><span class="dot"></span> شحن لكل محافظات مصر — استلام سريع من القاهرة والإسكندرية</div>
+    </div>
+
+    <div class="hero-frame reveal">
+      <img src="faz2.jpg" alt="صور رئيسية للمنتجات">
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE TICKER ============ -->
+<div class="ticker-wrap">
+  <div class="ticker" aria-hidden="true">
+    <span>شموع معطرة</span><span>مكرمية</span><span>فازات ولوحات</span><span>Gift Box</span><span>هدايا يدوية</span><span>صُنع في مصر</span>
+    <span>شموع معطرة</span><span>مكرمية</span><span>فازات ولوحات</span><span>Gift Box</span><span>هدايا يدوية</span><span>صُنع في مصر</span>
+  </div>
+</div>
+
+<!-- ============ STORY ============ -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-quote reveal">
+      <p>كل قطعة عندنا اتعملت بإيد، مش بماكينة. من شمعة بتتصب على مهلها، لمكرمية بتتعقد خيط خيط.</p>
+      <p>مستوحيين من جمال التراث المصري، بس بشكل بسيط يناسب بيت النهاردة، مش قطعة متحف.</p>
+      <span class="story-sign">— فريق Nile &amp; Nook</span>
+    </div>
+    <div class="story-visual reveal">
+      <img src="candle2.jpg">
+    </div>
+  </div>
+</section>
+
+<div class="torn into-cream"></div>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">المنتجات</span>
+      <h2 class="arabic-display">كل قطعة ليها حكاية</h2>
+      <p>اختاري اللي يشبه بيتك، أو ابعتيلنا صورة الأوضة ونساعدك تختاري.</p>
+    </div>
+
+    <div class="product-row reveal">
+      <div class="product-visual">
+        <img src="candle.jpg" alt=">صورة شمعة معطرة">
+      </div>
+      <div class="product-info">
+        <span class="eyebrow">01</span>
+        <h3>شموع معطرة</h3>
+        <p>شمعة بريحة بتفضل معاكِ، بتتصب يدويًا بألوان دافية تناسب أي ديكور.</p>
+        <div class="product-footer">
+          <div class="price-tag">180 ج.م<span>تبدأ من / القطعة</span></div>
+          <a class="btn btn-outline-ink btn-sm wa-link" data-item="شموع معطرة" href="#" target="_blank" rel="noopener">اطلبي دي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row reveal">
+      <div class="product-visual">
+        <img src="makrma.jpg" alt="صورة مكرمية">
+      </div>
+      <div class="product-info">
+        <span class="eyebrow">02</span>
+        <h3>مكرمية</h3>
+        <p>شغل خيط بإيد، لأي حيطة أو ركن محتاج لمسة دافية وطبيعية.</p>
+        <div class="product-footer">
+          <div class="price-tag">350 ج.م<span>تبدأ من / القطعة</span></div>
+          <a class="btn btn-outline-ink btn-sm wa-link" data-item="مكرمية" href="#" target="_blank" rel="noopener">اطلبي دي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row reveal">
+      <div class="product-visual">
+        <img src="faz1.jpg" alt="صورة فازة أو لوحة">
+      </div>
+      <div class="product-info">
+        <span class="eyebrow">03</span>
+        <h3>فازات ولوحات صغيرة</h3>
+        <p>قطع ديكور بسيطة بتضيف طابع مصري بشكل عصري لأي طاولة أو رف.</p>
+        <div class="product-footer">
+          <div class="price-tag">250 ج.م<span>تبدأ من / القطعة</span></div>
+          <a class="btn btn-outline-ink btn-sm wa-link" data-item="فازات ولوحات" href="#" target="_blank" rel="noopener">اطلبي دي</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row reveal">
+      <div class="product-visual">
+        <img src="gift1.jpg" alt="Gift Box">
+      </div>
+      <div class="product-info">
+        <span class="eyebrow">04</span>
+        <h3>Gift Box</h3>
+        <p>علبة هدية جاهزة تجمع أكتر من قطعة، تناسب أي مناسبة.</p>
+        <div class="product-footer">
+          <div class="price-tag">500 ج.م<span>تبدأ من / العلبة</span></div>
+          <a class="btn btn-outline-ink btn-sm wa-link" data-item="Gift Box" href="#" target="_blank" rel="noopener">اطلبي دي</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<svg class="thread" viewBox="0 0 1180 56" preserveAspectRatio="none">
+  <path d="M0 28 Q 148 6, 295 28 T 590 28 T 885 28 T 1180 28"/>
+  <circle cx="295" cy="28" r="4"/>
+  <circle cx="885" cy="28" r="4"/>
+</svg>
+
+<!-- ============ WHY US ============ -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">ليه Nile &amp; Nook</span>
+      <h2 class="arabic-display">مش مجرد ديكور، ده جو بيت</h2>
+    </div>
+    <div class="why-grid">
+      <div class="seal reveal">
+        <div class="seal-mark"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></div>
+        <h3>شغل إيد مش مصنع</h3>
+        <p>كل قطعة بتاخد وقتها، فمفيش قطعتين متطابقين تمامًا.</p>
+      </div>
+      <div class="seal reveal">
+        <div class="seal-mark"><svg viewBox="0 0 24 24"><path d="M12 2l2.5 6.5L21 10l-5 4 1.5 7L12 17l-5.5 4L8 14l-5-4 6.5-1.5z"/></svg></div>
+        <h3>روح مصرية عصرية</h3>
+        <p>إلهام من التراث، من غير ما القطعة تحس إنها متحفية أو زايدة عن بيتك.</p>
+      </div>
+      <div class="seal reveal">
+        <div class="seal-mark"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <h3>تواصل مباشر وسهل</h3>
+        <p>من غير حسابات معقدة، تراسلينا على واتساب واحنا هنرد بسرعة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GIFT BANNER ============ -->
+<div class="gift-wrap">
+  <div class="container">
+    <div class="gift-banner reveal">
+      <div>
+        <h2>مش عارفة تهدي إيه؟</h2>
+        <p>اعملي Gift Box مخصوص يجمع أكتر من قطعة، وهيوصل متغلف زي الهدية بالظبط.</p>
+      </div>
+      <a class="btn btn-ghost wa-link" data-item="Gift Box مخصوص" href="#" target="_blank" rel="noopener">اطلبي Gift Box</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="container contact-wrap">
+    <div class="contact-side reveal">
+      <span class="eyebrow">خليكي قريبة</span>
+      <h2>كلمينا، وهنساعدك تختاري صح</h2>
+      <p>اكتبي اسمك ورقمك وهنبعتلك تفاصيل أكتر على واتساب، أو دوسي على الزرار وابعتيلنا رسالة على طول.</p>
+      <div class="contact-direct">
+        <div class="wa-icon"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.5 1 1-3.4-.2-.3C3.5 14.6 3 13.3 3 12c0-4.9 4-8.9 9-8.9s9 4 9 8.9-4 8.9-9 8.9z"/></svg></div>
+        <div><strong>واتساب</strong><span>+20 100 000 0000</span></div>
+      </div>
+    </div>
+
+    <div class="contact-card reveal">
+      <div class="field">
+        <label for="cname">الاسم</label>
+        <input type="text" id="cname" placeholder="اكتبي اسمك">
+      </div>
+      <div class="field">
+        <label for="cphone">رقم الموبايل</label>
+        <input type="tel" id="cphone" placeholder="01xxxxxxxxx">
+      </div>
+      <button class="btn btn-primary" id="sendWaBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.5 1 1-3.4-.2-.3C3.5 14.6 3 13.3 3 12c0-4.9 4-8.9 9-8.9s9 4 9 8.9-4 8.9-9 8.9z"/></svg>
+        ابعتي التفاصيل على واتساب
+      </button>
+      <p class="contact-hint">هيفتح واتساب برسالة جاهزة فيها بياناتك، تقدري تعدليها قبل ما تبعتيها.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="logo-box">
+        <div class="logo-mark">ن</div>
+        <div>
+          <span class="logo-text brand-wordmark">Nile &amp; Nook</span>
+          <span class="logo-sub">ديكور وهدايا يدوية — صنع في مصر</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm0 7.4a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8zM16.9 6a1.05 1.05 0 1 0 0 2.1 1.05 1.05 0 0 0 0-2.1zM21.9 7.4c-.06-1.2-.33-2.27-1.2-3.14C19.83 3.4 18.76 3.13 17.56 3.07 16.35 3 12.65 3 12 3c-.65 0-4.35 0-5.56.07C5.24 3.13 4.17 3.4 3.3 4.26 2.43 5.13 2.16 6.2 2.1 7.4 2.03 8.6 2.03 12.4 2.1 13.6c.06 1.2.33 2.27 1.2 3.14.87.86 1.94 1.13 3.14 1.19C7.65 18 11.35 18 12 18c.65 0 4.35 0 5.56-.07 1.2-.06 2.27-.33 3.14-1.19.87-.87 1.14-1.94 1.2-3.14.07-1.2.07-5 0-6.2zM12 16.2A4.2 4.2 0 1 1 12 7.8a4.2 4.2 0 0 1 0 8.4z"/></svg></a>
+        <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9c0-.3.3-1 1-1z"/></svg></a>
+        <a href="#" aria-label="واتساب" class="wa-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.5 1 1-3.4-.2-.3C3.5 14.6 3 13.3 3 12c0-4.9 4-8.9 9-8.9s9 4 9 8.9-4 8.9-9 8.9z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nile &amp; Nook. جميع الحقوق محفوظة.</span>
+      <span>صُنع بحب في مصر 🌿</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa wa-link" href="#" target="_blank" rel="noopener" aria-label="اطلبي على واتساب">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.5 1 1-3.4-.2-.3C3.5 14.6 3 13.3 3 12c0-4.9 4-8.9 9-8.9s9 4 9 8.9-4 8.9-9 8.9z"/></svg>
+</a>
+
+<script>
+  // ================= إعدادات سريعة =================
+  const WHATSAPP_NUMBER = "201000000000"; // غيّري ده برقم واتساب البيزنس (بصيغة دولية من غير + أو أصفار زيادة)
+  const DEFAULT_MESSAGE = "أهلاً، حابة أعرف أكتر عن منتجات Nile & Nook";
+
+  function buildWaLink(text){
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  }
+  document.querySelectorAll(".wa-link").forEach(function(link){
+    const item = link.getAttribute("data-item");
+    const message = item ? `أهلاً، حابة أطلب: ${item}` : DEFAULT_MESSAGE;
+    link.setAttribute("href", buildWaLink(message));
+  });
+  document.getElementById("sendWaBtn").addEventListener("click", function(){
+    const name = document.getElementById("cname").value.trim();
+    const phone = document.getElementById("cphone").value.trim();
+    let message = DEFAULT_MESSAGE;
+    if(name || phone){
+      message = `أهلاً، اسمي ${name || "-"} ورقمي ${phone || "-"}. حابة أعرف أكتر عن منتجاتكم.`;
+    }
+    window.open(buildWaLink(message), "_blank", "noopener");
+  });
+
+  // Header background on scroll
+  const header = document.getElementById("siteHeader");
+  window.addEventListener("scroll", function(){
+    header.classList.toggle("scrolled", window.scrollY > 40);
+  }, {passive:true});
+
+  // Reveal on scroll + thread draw-in
+  const revealEls = document.querySelectorAll(".reveal");
+  const threadEls = document.querySelectorAll(".thread");
+  if("IntersectionObserver" in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(el=>observer.observe(el));
+
+    const threadObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-drawn");
+          threadObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    threadEls.forEach(el=>threadObserver.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add("is-visible"));
+    threadEls.forEach(el=>el.classList.add("is-drawn"));
+  }
+</script>
+
+</body>
+</html>
